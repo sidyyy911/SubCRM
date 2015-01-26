@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jsp/jstl/core"
+   xmlns:fn="http://java.sun.com/jsp/jstl/functions"> 
+   	<head>
+   		<title>Profile</title>
+   		<style>
+   		.div1 a{
+   		font-size: 25px; color: green; text-align: middle;
+   		}
+   		.div1 ul{
+   		font-size: 18px; color: blue;
+   		}
+   		</style>
+   	</head>
+   	
+   	<body>
+   		<h:form>
+   			<div align="center" class="div1">
+   				<h:messages />
+   				<br/><br/>
+   				<c:if test = "${login.managerName!='admin' &amp;&amp;  !fn:startsWith(fn:toLowerCase(login.managerName),'zonal')}">
+   				
+   					<h:commandLink value="All Leads" action="#{profile.getAllLeads()}"/><br/><br/>
+   					<h:commandLink value="Open Leads" action="#{profile.getOpenLeads()}"/><br/><br/>
+   					<h:commandLink value="Closed Leads" action="#{profile.getClosedLeads()}"/><br/><br/>
+   				</c:if>
+   				<c:if test = "${fn:startsWith(fn:toLowerCase(login.managerName),'zonal')}">
+   					<h:commandLink value="All Leads" action="#{profile.getAllLeads()}"/><br/><br/>
+   					<h:commandLink value="Open Leads" action="#{profile.getOpenLeads()}" /><br/><br/>
+   					<h:commandLink value="Closed Leads" action="#{profile.getClosedLeads()}"/><br/><br/>
+   				</c:if>
+   			</div>
+   		</h:form>
+   	</body>
+</html>

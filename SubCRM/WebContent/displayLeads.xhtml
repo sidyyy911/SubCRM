@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"> 
+   <head>
+   		<style>
+   		.date1{width: 80px;}
+   		.date2{width: 85px;background-color: green;
+   		color: white;
+   		font-size: 18px}
+   		.date3{width: 85px;background-color: green;
+   		color: white;
+   		font-size: 18px;}
+   		.head1{background-color: green;
+   		color: white;
+   		font-size: 18px;}
+   		td{font-size:16px;}
+   		</style>
+   		<title>
+   		Leads
+   		</title>
+   	</head>
+   	<body>
+   		<h:form>
+   		<h:commandButton value="Back" action="profile" style="font-size:20px;color:green"/><br/><br/>
+   		<div align="center">
+   			<h:dataTable value="#{profile.leads}" var="lead" border="1" headerClass="head1">
+   				<f:facet name="header">
+        			<h:outputText value="Leads" />
+    			</f:facet>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="State" />
+    				</f:facet>
+   					#{lead.state}
+   				</h:column> -->
+   				<h:column>
+   					<h:commandLink value="EDIT" action="editLead" style="font-style:italic;">
+   						<f:setPropertyActionListener target="#{displayLeads.lead}" value="#{lead}"/>   					
+   					</h:commandLink>
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="City" />
+    				</f:facet>
+   					#{lead.city}
+   				</h:column>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Lead Type" />
+    				</f:facet>
+   					#{lead.leadType}
+   				</h:column> -->
+   				<!-- <h:column headerClass="date1">
+   					<f:facet name="header">
+        				<h:outputText value="Call Date" />
+    				</f:facet>
+   					#{lead.callDate}
+   				</h:column> -->
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Zonal Manager" />
+    				</f:facet>
+   					#{lead.zonalManager}
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Manager" />
+    				</f:facet>
+   					#{lead.manager}
+   				</h:column> -->
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Source" />
+    				</f:facet>
+   					#{lead.source}
+   				</h:column> -->
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Customer Name" />
+    				</f:facet>
+   					#{lead.customerName}
+   				</h:column>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Address" />
+    				</f:facet>
+   					#{lead.address}
+   				</h:column> -->
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Mobile" />
+    				</f:facet>
+   					#{lead.mobile}
+   				</h:column>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Alternate Number" />
+    				</f:facet>
+   					#{lead.alternateNumber}
+   				</h:column> -->
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Email" />
+    				</f:facet>
+   					#{lead.customerEmail}
+   				</h:column> -->
+   				<h:column headerClass="date2">
+   					<f:facet name="header">
+        				<h:outputText value="Demo Date" />
+    				</f:facet>
+   					<h:outputText value="#{lead.demoDate}">
+   						<f:convertDateTime pattern="dd-MMM-yyyy HH:mm" timeZone="IST"/>
+   					</h:outputText>
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Feedback" />
+    				</f:facet>
+   					#{lead.feedback}
+   				</h:column>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Status" />
+    				</f:facet>
+   					#{lead.leadStatus}
+   				</h:column> -->
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Demo Given" />
+    				</f:facet>
+   					#{lead.demoGiven}
+   				</h:column> -->
+   				<h:column headerClass="date3">
+   					<f:facet name="header">
+        				<h:outputText value="Reschedule Date" />
+    				</f:facet>
+   					<h:outputText value="#{lead.rescheduleDate}">
+   						<f:convertDateTime pattern="dd-MMM-yyyy HH:mm" timeZone="IST" />
+   					</h:outputText>
+   				</h:column>
+   				<!-- <h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Reject Reason" />
+    				</f:facet>
+   					#{lead.rejectReason}
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Other Model Purchased" />
+    				</f:facet>
+   					#{lead.otherModelPurchased}
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Livpure Model Purchased" />
+    				</f:facet>
+   					#{lead.livpureModelPurchased}
+   				</h:column>
+   				<h:column>
+   					<f:facet name="header">
+        				<h:outputText value="Remarks" />
+    				</f:facet>
+   					#{lead.remarks}
+   				</h:column> -->
+   				
+   			</h:dataTable>
+   			</div>
+   		</h:form>
+   	
+   	</body>
+   
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://primefaces.org/ui"> 
+   <h:head>
+   		<style>
+   		.eLTable table{
+   		border-color: green;
+   		}
+   		.eLTable td{
+   		font-size: 20px;}
+   		</style>
+   		<title>Edit Lead</title>
+   		<!-- <script type="text/javascript" src="/scripts/jquery-1.11.2.min.js" />
+   		<script type="text/javascript" src="/scripts/editLead.js" /> -->
+   </h:head>
+   <body>
+   		<h:form>
+   			<div align="center" class="eLTable">
+   				<h:panelGrid columns="2" border="2" cellpadding="2" cellspacing="0">
+   					<h:outputText value="City "/>
+   					<h:outputText value="#{editLead.lead.city}" />
+   					<h:outputText value="Customer Name "/>
+   					<h:outputText value="#{editLead.lead.customerName}" />
+   					<h:outputText value="Mobile " />
+   					<h:outputText value="#{editLead.lead.mobile}" />
+   					<h:outputText value="Demo Date " />
+   					<h:outputText value="#{editLead.lead.demoDate}">
+   						<f:convertDateTime pattern="dd-MMM-yyyy HH:mm" timeZone="IST" />
+   					</h:outputText>
+   					<h:outputText value="Feedback" />
+   					<h:selectOneMenu id="feedbackMenu" value="#{editLead.lead.feedback}" valueChangeListener="#{editLead.onFeedbackChange}">
+   						<f:selectItem itemValue=" " />
+   						<f:selectItem itemValue="Sold"/>
+   						<f:selectItem itemValue="Not Interested"/>
+   						<f:selectItem itemValue="Followup Required"/>
+   						<f:ajax execute="feedbackMenu" render="leadStatusValue" />
+   					</h:selectOneMenu>
+   					<h:outputText value="Reschedule Date &nbsp;&nbsp;" />
+   					<p:calendar style="font-size:16px;" value="#{editLead.lead.rescheduleDate}" pattern="dd-MMM-yyyy HH:mm" mindate="#{editLead.lead.demoDate}" readonlyInput="true" showButtonPanel="true" />   					
+   					<h:outputText id="leadStatusText" value="Lead Status"/>
+   					<h:outputText id="leadStatusValue" value="#{editLead.lead.leadStatus}" />  					
+   					
+   				</h:panelGrid>
+   				
+   				<h:commandButton value=" Submit " onclick="submit" />&nbsp;
+   				<h:commandButton value=" Cancel " action="displayLeads"/>
+   			</div>
+   		</h:form>
+   </body>  
+</html>

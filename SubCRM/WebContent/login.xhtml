@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"> 
+   
+   		<head>
+   		<style>
+   		.pan td{
+   		font-size: 25px; color: green; text-align: middle;
+   		}
+   		.pan input{
+   		font-size: 20px; color: black; text-align: middle; 
+   		}
+   		.div1 input{
+   		font-size: 25px; color: green; text-align: middle;
+   		}
+   		.div1 ul{
+   		font-size: 18px; color: red;
+   		}</style>
+   			<title>LivPure SubCRM</title>   
+   		</head>
+   		<body>
+   		
+   			<h:form>
+   				<div align="center" class="div1">
+   				<h:panelGrid columns="2" class="pan">
+   					<h:outputText value="Username: &nbsp;&nbsp;" />
+   					<h:inputText id="userId" label="Username" required="true" maxlength="20" size="20" value="#{login.usernameDisplayed}">
+   						<f:validateLength minimum="5" maximum="20" />	
+   					</h:inputText> 
+   					
+   					<h:outputText value="Password: &nbsp;&nbsp;" />
+   					<h:inputSecret id="pass" label="Password" required="true"  maxlength="20" value="#{login.password}">
+   						<f:validateLength minimum="8" maximum="20" />
+   					</h:inputSecret>	
+   								
+   				</h:panelGrid>
+   				<h:commandButton value="&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;" onclick="submit" action="#{login.validateCredentials}"/>
+   				<h:messages />
+   				</div>
+   			</h:form>
+   	</body>
+   </html>
